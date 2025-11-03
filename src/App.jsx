@@ -12,15 +12,20 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>Game Search</h1>
-      <input
-        type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-      <div>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-4">Game Search</h1>
+      <div className="flex mb-4">
+        <input
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          className="border rounded-l-md p-2 w-full"
+        />
+        <button onClick={handleSearch} className="bg-blue-500 text-white rounded-r-md p-2">
+          Search
+        </button>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}

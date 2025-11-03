@@ -1,28 +1,28 @@
-import React from 'react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const GameCard = ({ game }) => {
   const { title, genre, imageUrl } = game;
 
-  const cardStyle = {
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    padding: '16px',
-    margin: '16px',
-    width: '300px',
-  };
-
-  const imageStyle = {
-    width: '100%',
-    height: 'auto',
-    borderRadius: '4px',
-  };
-
   return (
-    <div style={cardStyle}>
-      <img src={imageUrl} alt={title} style={imageStyle} />
-      <h3>{title}</h3>
-      <p>{genre}</p>
-    </div>
+    <Card className="w-[350px]">
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{genre}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <img src={imageUrl} alt={title} className="rounded-md" />
+      </CardContent>
+      <CardFooter>
+        <p>Card Footer</p>
+      </CardFooter>
+    </Card>
   );
 };
 
